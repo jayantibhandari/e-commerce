@@ -2,27 +2,9 @@
 <html lang="en">
   <head>
      <!-- Required meta tags -->
-     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Admin</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="admin/assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="admin/assets/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="admin/assets/vendors/jvectormap/jquery-jvectormap.css">
-    <link rel="stylesheet" href="admin/assets/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="admin/assets/vendors/owl-carousel-2/owl.carousel.min.css">
-    <link rel="stylesheet" href="admin/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="admin/assets/css/style.css">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="images/logo-mini.png" >
 
-    <base href="/public">
+     <base href="/public">
+     @include('admin.css')
 
     <style type="text/css">
         .div_center{
@@ -32,19 +14,21 @@
             font-size:30px;
             color:#283618;
             font-weight:600;
+            margin-bottom:15%;
         }
         .main-panel .alert{
             margin:2% 10%;
             background-color:#283618;
             text-align:center;
             color:white;
+
         }
 
         .div_center .btn{
             border: 1px solid #bc6c25;
             background-color:#bc6c25;
             font-weight:600;
-            width:210px;
+            width:290px;
         }
         .btn-secondary{
             margin-top:3%;
@@ -105,40 +89,47 @@
             </div>
             @endif
                 <div class="div_center">
-                    <h2>Add Product </h2>
+                    <h2>Update Product </h2>
 
-                    <form class="div_form" action="{{url('add_product')}}" method="POST" enctype="multipart/form-data">
+                    <form class="div_form" action="{{url('update_confirm',$product->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <input class="btn btn-primary" type="submit" name="submit" value="Add title"  >
-                        <input class="section" type="text" name="title" placeholder="Write title" Required=''> <br>
+                        <input class="btn btn-primary" type="submit" name="submit" value="Update current title"  >
+                        <input class="section" type="text" name="title" value="{{$product->title}}" placeholder="Write title" > <br>
 
-                        <input class="btn btn-primary" type="submit" name="submit" value="Add description">
-                        <input class="section" type="text" name="description" placeholder="Write description"><br>
+                        <input class="btn btn-primary" type="submit" name="submit" value="Update current description">
+                        <input class="section" type="text" name="description" value="{{$product->description}}" placeholder="Write description"><br>
 
-                        <input class="btn btn-primary" type="submit" name="submit" value="Add quantity">
-                        <input class="section" type="number" name="quantity" placeholder="Write quantity" Required=''><br>
+                        <input class="btn btn-primary" type="submit" name="submit" value="Update current quantity">
+                        <input class="section" type="number" name="quantity" value="{{$product->quantity}}" placeholder="Write quantity" ><br>
 
-                        <input class="btn btn-primary" type="submit" name="submit" value="Add price">
-                        <input class="section" type="number" name="price" placeholder="Write price" Required=''><br>
+                        <input class="btn btn-primary" type="submit" name="submit" value="Update current price">
+                        <input class="section" type="number" name="price" value="{{$product->price}}" placeholder="Write price" ><br>
 
-                        <input class="btn btn-primary" type="submit" name="submit" value="Add discount price">
-                        <input class="section" type="number" name="discount price" placeholder="Write discount price"><br>
-
-                        <input class="btn btn-primary" type="submit" name="submit" value="Add image">
-                        <input class="section" type="file" name="image" placeholder="Write image" Required=''><br>
+                        <input class="btn btn-primary" type="submit" name="submit" value="Update current discount price">
+                        <input class="section" type="number" name="discount price" value="{{$product->discount_price}}"placeholder="Write discount price"><br>
 
 
-                        <input class="btn btn-primary" type="submit" name="submit" value="Add Catagory">
+
+                        <input class="btn btn-primary" type="submit" name="submit" value="Update current image">
+                        <input class="section" type="file" name="image"  placeholder="Change image" value="image">
+                        <img style="margin:auto;" height="100px" width="30%" src="/product/{{$product->image}}" alt="">
+                        <br>
+
+
+                        <input class="btn btn-primary" type="submit" name="submit" value="Update current Catagory">
                         <select name="catagory" id="">
-                            <option value=""><a href="{{url('/add_catagory')}}">Add catagory</a></option>
+                            <option value="{{$product->catagory}}">{{$product->catagory}}</option>
 
+                            @foreach($catagory as $catagory)
+                            <option value="{{$catagory->catagory_name}}">{{$catagory->catagory_name}}</option>
+                            @endforeach
 
                         </select>
                        <br>
 
 
 
-                        <input class="btn btn-primary btn-secondary" type="submit" name="submit" value="Submit Product">
+                        <input class="btn btn-primary btn-secondary" type="submit" name="submit" value="Update Product">
                     </form>
 
                 </div>

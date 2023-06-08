@@ -7922,6 +7922,7 @@ pre {
 
 .row {
   display: flex;
+
   flex-wrap: wrap;
   margin-right: -0.75rem;
   margin-left: -0.75rem; }
@@ -8148,6 +8149,7 @@ pre {
     flex: 0 0 41.66667%;
     max-width: 41.66667%; }
   .col-sm-6 {
+    box-shadow:5px 10px 18px black;
     flex: 0 0 50%;
     max-width: 50%; }
   .col-sm-7 {
@@ -21175,4 +21177,7 @@ div.tagsinput {
 }
 body{
     font-weight: 600 !important;
+}
+.product_section{
+    box-shadow:5px 10px 18px black;
 }
