@@ -12,10 +12,26 @@
          <!-- end header section -->
 
 
+
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img class="d-block w-100" src="images/p27.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                    <img class="d-block w-100" src="images/p26.jpg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                    <img class="d-block w-100" src="images/p26.jpg" alt="Third slide">
+                    </div>
+                </div>
+        </div>
+
+
          <!-- slider section -->
-         <section class="slider_section ">
+         <!-- <section class="slider_section " >
             <div class="slider_bg_box">
-               <img src="images/slider2.jpg" alt="">
+               <img class="slider_img" src="images/p27.jpg" alt="">
             </div>
             <div id="customCarousel1" class="carousel slide" data-ride="carousel">
                <div class="carousel-inner">
@@ -44,14 +60,14 @@
                         </div>
                      </div>
                   </div>
-                  <div class="carousel-item ">
+                  <div id="customCarousel2" class="carousel-item ">
                      <div class="container ">
                         <div class="row">
                            <div class="col-md-7 col-lg-6 ">
                               <div class="detail-box">
                                  <h1>
                                     <span>
-                                    Sale 20% Off
+                                    Sale 30% Off
                                     </span>
                                     <br>
                                     On Everything
@@ -98,13 +114,13 @@
                <div class="container">
                   <ol class="carousel-indicators">
                      <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
-                     <li data-target="#customCarousel1" data-slide-to="1"></li>
-                     <li data-target="#customCarousel1" data-slide-to="2"></li>
+                     <li data-target="#customCarousel2" data-slide-to="1"></li>
+                     <li data-target="#customCarousel3" data-slide-to="2"></li>
                   </ol>
                </div>
             </div>
          </section>
-         <!-- end slider section -->
+         end slider section -->
       </div>
       <!-- why section -->
       <section class="why_section layout_padding">

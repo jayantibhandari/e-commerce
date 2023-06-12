@@ -5,6 +5,7 @@
    @include('home.css')
 
    <style>
+
     .img_box{
         float:right;
         /* height:300px; */
@@ -26,9 +27,9 @@
 
       <!-- slider section -->
       <section class="slider_section ">
-            <div class="slider_bg_box">
-            <img style="margin:auto;" height="600px" src="product/{{$product->image}}" alt="">
-            </div>
+                <div class="slider_bg_box">
+                    <img class="details_img" src="/product/{{$product->image}}" alt="">
+                </div>
             <div id="customCarousel1" class="carousel slide" data-ride="carousel">
                <div class="carousel-inner">
                   <div class="carousel-item active">
@@ -39,17 +40,22 @@
                                  <h1>
                                  {{$product->title}}
                                  </h1>
-                                 <h2>
+                                 <h4>
                                  {{$product->description}}
-                                </h2>
+                                </h4>
+
+                                <h5>
+                                    Number of Pieces:
+                                 {{$product->quantity}}
+                                </h5>
 
 
                                 @if($product->discount_price!=null)
-                                <h2 style="color:#283618">
+                                <h2 style="color:#bc6c25;">
                                     Rs.{{$product->discount_price}}
                                 </h2>
 
-                                    <h2 style="text-decoration:line-through; color:#bc6c25;">
+                                    <h2 style="text-decoration:line-through; color:#283618">
                                          Rs.{{$product->price}}
                                     </h2>
 

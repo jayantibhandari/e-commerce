@@ -7506,7 +7506,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #ffffff;
+  /* color: #ffffff; */
   text-align: left;
   background-color: #fff; }
 
@@ -8149,7 +8149,7 @@ pre {
     flex: 0 0 41.66667%;
     max-width: 41.66667%; }
   .col-sm-6 {
-    box-shadow:5px 10px 18px black;
+    /* box-shadow:5px 10px 18px black; */
     flex: 0 0 50%;
     max-width: 50%; }
   .col-sm-7 {
