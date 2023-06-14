@@ -8,32 +8,19 @@
    <body>
       <div class="hero_area">
          <!-- header section strats -->
+
           @include('home.header');
          <!-- end header section -->
 
 
 
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                    <img class="d-block w-100" src="images/p27.jpg" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                    <img class="d-block w-100" src="images/p26.jpg" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                    <img class="d-block w-100" src="images/p26.jpg" alt="Third slide">
-                    </div>
-                </div>
-        </div>
-
 
          <!-- slider section -->
-         <!-- <section class="slider_section " >
+         <section class="slider_section " >
             <div class="slider_bg_box">
-               <img class="slider_img" src="images/p27.jpg" alt="">
+               <!-- <img class="slider_img" src="images/p27.jpg" alt=""> -->
             </div>
-            <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+            <div id="customCarousel1" class="carousel slide" data-ride="carousel" Data-interval= '2000'>
                <div class="carousel-inner">
                   <div class="carousel-item active">
                      <div class="container ">
@@ -48,7 +35,7 @@
                                     On Everything
                                  </h1>
                                  <p>
-                                    Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                                    Explicabo esse amet tempora quibusdaugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
                                  </p>
                                  <div class="btn-box">
                                     <a href="" class="btn1">
@@ -114,22 +101,17 @@
                <div class="container">
                   <ol class="carousel-indicators">
                      <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
-                     <li data-target="#customCarousel2" data-slide-to="1"></li>
-                     <li data-target="#customCarousel3" data-slide-to="2"></li>
+                     <li data-target="#customCarousel1" data-slide-to="1"></li>
+                     <li data-target="#customCarousel1" data-slide-to="2"></li>
                   </ol>
                </div>
             </div>
          </section>
-         end slider section -->
+         <!-- end slider section -->
       </div>
       <!-- why section -->
       <section class="why_section layout_padding">
          <div class="container">
-            <div class="heading_container heading_center">
-               <h2>
-                  Why Shop With Us
-               </h2>
-            </div>
             <div class="row">
                <div class="col-md-4">
                   <div class="box ">
@@ -365,6 +347,7 @@
                      </div>
                   </div>
                </div>
+
             </div>
          </div>
       </section>

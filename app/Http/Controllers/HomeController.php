@@ -10,6 +10,8 @@ use App\Models\User;
 
 use App\Models\Product;
 
+
+
 class HomeController extends Controller
 {
 
@@ -30,6 +32,7 @@ class HomeController extends Controller
         return view('home.userpage',compact('product'));
         }
     }
+
 
     public function details($id){
 

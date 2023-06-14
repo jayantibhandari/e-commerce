@@ -1,3 +1,42 @@
+<!-- topnav section -->
+
+<header class="topnav_section">
+    <nav>
+        <div class="topnav">
+            <ul class="nav">
+                <li>
+                   <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <a  aria-current="page" href="#">&nbsp;treasureTrove1234@gmail.com</a>
+                </li>
+                <li>
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                    <a  href="#">&nbsp;+977 9876548907 </a>
+                </li>
+
+                @if (Route::has('login'))
+
+                @auth
+                <li >
+                <x-app-layout> </x-app-layout>
+                </li>
+
+                @else
+                <li class="login_nav">
+                 <button> <a class="login "href="{{route('login')}}">LogIn</a></button>
+                 &nbsp;
+                 <button> <a class="register "href="{{route('register')}}">Sign-Up</a></button>
+                </li>
+                @endauth
+
+                @endif
+
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- end  -->
+
 <header class="header_section">
             <div class="container">
                <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -30,25 +69,6 @@
                            </button>
                         </form>
 
-                        @if (Route::has('login'))
-
-                        @auth
-                        <li class="nav-item">
-                        <x-app-layout> </x-app-layout>
-                        </li>
-
-                        @else
-
-                        <li class="nav-item">
-                           <a class="nav-link login-link" href="{{route('login')}}">LogIn</a>
-                        </li>
-
-                        <li class="nav-item">
-                           <a class="nav-link login-link" href="{{route('register')}}">Sign-Up</a>
-                        </li>
-                        @endauth
-
-                        @endif
 
 
                      </ul>
