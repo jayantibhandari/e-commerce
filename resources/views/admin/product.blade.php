@@ -110,10 +110,10 @@
 
                         <input class="btn btn-primary" type="submit" name="submit" value="Add Catagory">
                         <select name="catagory" id="">
-                            <option value=""><a href="{{url('/add_catagory')}}">Add catagory</a></option>
+                            <option value=""><a href="{{route('add_category')}}">Add catagory</a></option>
 
                             @foreach($catagory as $catagory)
-                            <option value="{{$catagory->catagory_name}}">{{$catagory->catagory_name}}</option>
+                            <option value="{{$catagory->catagory_id}}">{{$catagory->catagory_name}}</option>
                             @endforeach
                         </select>
                        <br>

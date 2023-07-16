@@ -3,18 +3,13 @@
    <head>
       <!-- Basic -->
       @include('home.css')
-
+      <meta name="csrf-token" content="{{ csrf_token() }}">
    </head>
    <body>
       <div class="hero_area">
          <!-- header section strats -->
-
           @include('home.header');
          <!-- end header section -->
-
-
-
-
          <!-- slider section -->
          <section class="slider_section " >
             <div class="slider_bg_box">
@@ -355,9 +350,103 @@
 
 
       <!-- product section -->
-     @include('home.product');
+     @include('home.product')
 
      @include('home.footer')
      @include('home.script')
+
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Set up CSRF token for AJAX requests
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        // When a category button is clicked
+        $('.category-btn').click(function() {
+            // Remove active class from all category buttons
+            $('.category-btn').removeClass('active');
+            // Add active class to the clicked button
+            $(this).addClass('active');
+
+            // Get the category_id from the data attribute
+            var categoryId = $(this).data('category-id');
+
+            // Make an AJAX request to your controller
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('getproduct') }}",
+                data: { category_id: categoryId },
+                success: function(response) {
+                    // Handle the response from the controller and update the product container
+                    if (response.success) {
+                        var productContainer = $('#product-container');
+                        productContainer.empty(); // Clear the existing products
+
+                        $.each(response.products, function(index, product) {
+                            // Retrieve product details from the data attributes
+                            var productId = product.id;
+                            var productImage = product.image;
+                            var productTitle = product.title;
+                            var productDiscountPrice = product.discount_price;
+                            var productPrice = product.price;
+
+                            // Generate the HTML for each product and append it to the container
+                            var productHtml = `
+                                <div class="col product_section">
+                                    <div class="box card">
+                                        <div class="option_container">
+                                            <div class="options">
+                                                <a href="{{ url('details') }}/${productId}" class="option1">
+                                                    Details
+                                                </a>
+                                                <a href="" class="option2">
+                                                    Buy Now
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-box">
+                                            <img style="margin:auto;"  src="product/${productImage}" alt="">
+                                        </div>
+                                        <div class="detail-box">
+                                            <p style="color:#283618" class="mr-3">
+                                                ${productTitle}
+                                            </p>
+                                            <br>
+                                            ${productDiscountPrice !== null ? `
+                                                <p style="color:#283618">
+                                                    Rs.${productDiscountPrice}
+                                                </p>
+                                                <p style="text-decoration:line-through; color:#bc6c25;">
+                                                    Rs.${productPrice}
+                                                </p>
+                                            ` : `
+                                                <p style="color:#bc6c25;">
+                                                    Rs.${productPrice}
+                                                </p>
+                                            `}
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+
+                            productContainer.append(productHtml);
+                        });
+                    } else {
+                        console.log(response.message); // Log any error messages from the server
+                    }
+                },
+                error: function(error) {
+                    // Handle errors if necessary
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>
+
    </body>
 </html>

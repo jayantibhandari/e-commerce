@@ -17,7 +17,7 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-route::get('/',[HomeController::class,'index']);
+Route::match(['get', 'post'], '/', [HomeController::class, 'index'])->name('getproduct');
 
 
 Route::middleware([
@@ -32,7 +32,7 @@ Route::middleware([
 
 route::get('/redirect',[HomeController::class,'redirect']);
 route::get('/view_catagory',[AdminController::class,'view_catagory']);
-route::post('/add_catagory',[AdminController::class,'add_catagory']);
+route::post('/add_catagory',[AdminController::class,'add_catagory'])->name('add_category');
 route::get('/delete_catagory/{id}',[AdminController::class,'delete_catagory']);
 
 route::get('/view_product',[AdminController::class,'view_product']);

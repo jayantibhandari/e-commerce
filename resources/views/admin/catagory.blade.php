@@ -121,7 +121,7 @@
 
                     <form action="{{url('/add_catagory')}}" method="POST">
                         @csrf
-                        <input class="section" type="text" name="catagory" placeholder="Write Catagory Name">
+                        <input class="section" type="text" name="catagory_name" placeholder="Write Catagory Name">
                         <input class="btn btn-primary" type="submit" name="submit" value="Add Catagory">
                     </form>
                 </div>

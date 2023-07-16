@@ -17,7 +17,7 @@ class AdminController extends Controller
 
     public function add_catagory(Request $request){
         $data=new catagory;
-        $data->catagory_name= $request->catagory;
+        $data->catagory_name= $request->catagory_name;
         $data->save();
         return redirect()->back()->with('message','Catagory added sucessfully');
     }
@@ -35,12 +35,12 @@ class AdminController extends Controller
 
     public function add_product(Request $request){
         $product = new product;
-        $product-> title=$request->title;
-        $product-> description=$request->description;
-        $product-> price=$request->price;
-        $product-> quantity=$request->quantity;
-        $product-> discount_price=$request->discount_price;
-        $product-> catagory=$request->catagory;
+        $product->title=$request->title;
+        $product->description=$request->description;
+        $product->price=$request->price;
+        $product->quantity=$request->quantity;
+        $product->discount_price=$request->discount_price;
+        $product->catagory_id=$request->catagory;
 
         $image=$request->image;
         $imagename=time().'.'.$image->getClientOriginalExtension();
